@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Examples of SelectMenu</title>
+	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+	<link rel="stylesheet" type="text/css" href="https://unpkg.com/material-components-web@latest/dist/material-components-web.css">
+	<link rel="stylesheet" type="text/css" href="dist/dropdawn-1.0.0.css">
+
+	<style type="text/css">
+		body {
+			margin: 0;
+		}
+	</style>
+</head>
+<body>
+
+
+<main>
+<header class="mdc-toolbar">
+  <div class="mdc-toolbar__row">
+    <section class="mdc-toolbar__section mdc-toolbar__section--align-start">
+
+      <span class="mdc-toolbar__title">Select Dropdown Examples</span>
+    </section>
+  </div>
+</header>
+
+
+
+
+<div class="mdc-layout-grid">
+  <div class="mdc-layout-grid__inner">
+    <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-6">
+    	<h2>dropdawn</h2>
+    	<div class="mdc-form-field" id="dropdawn"></div>
+    </div>
+
+    <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-6">
+    	<h2>With API</h2>
+
+    	<div class="mdc-form-field" id="withApi"></div>
+
+    	<p>
+    		Without using redux, you can connect this component to an API with a handy
+    		callback function. The function is called on each input in the search bar,
+    		and should return a Promise that resolves to a list of options.
+    	</p>
+
+    	<p>
+    		The Promise doesn't have to resolve (for instance if not enough letters are typed in),
+    		and you can use throttling/debouncing to minimize the amount of API-calls.
+    	</p>
+
+    	<code>
+function apiCall(value) {<br>
+&nbsp;&nbsp;return new Promise(function(resolve, reject) {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;...<br>
+&nbsp;&nbsp;});<br>
+}<br>
+<br>
+&lt;dropdawn ... apiCall={apiCall}/&gt;
+    	</code>
+
+	</div>
+
+    <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-6">
+    	<h2>Create new</h2>
+
+    	<div class="mdc-form-field" id="createNew"></div>
+    	<p>
+    		When provided with a function to create new items on the list,
+    		a plus-button will appear next to the search bar. When clicking
+    		this button, the function will run.
+    	</p>
+
+    	<p>
+    		A second argument to the function is a callback. This can be incoked
+    		with the new options, who then gets selected. You could then, for
+    		instance bring up a dialog and call the callback when the form in dialog
+    		is filled out.
+    	</p>
+	</div>
+
+    <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-6">
+    	<h2>With link</h2>
+
+    	<div class="mdc-form-field" id="withLink"></div>
+
+    	<p>
+    		When an employee is selected in this dropdown box, a link shows up in the helper text below.
+    		This link takes you to the employees detail page.
+    	</p>
+    	<p>
+    		This is done by specifying the attributes <em>viewLink</em> and <em>viewLinkText</em>. If
+    		viewLinkText is not specified, the content is used instead. <em>viewLink</em> is a function
+    		that recieves the option as an argument, and returns the href as a string:
+    	</p>
+
+    	<code>
+&lt;dropdawn<br>&nbsp;&nbsp;...<br>&nbsp;&nbsp;viewLink={function(option) { return '/employee/' + option.value}}<br>&nbsp;&nbsp;viewLinkText="See employee details" /&gt;
+    	</code>
+	</div>
+
+ 	<div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-6">
+    	<h2>Disabled</h2>
+
+    	<div class="mdc-form-field" id="disabled"></div>
+
+    	<p>
+    		
+    	</p>
+
+    	<code>
+&lt;dropdawn ... disabled={true} /&gt;
+    	</code>
+	</div>
+
+
+
+
+ 	<div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-6">
+    	<h2>Readonly</h2>
+
+    	<div class="mdc-form-field" id="readonly"></div>
+
+    	<p>
+    		
+    	</p>
+
+    	<code>
+&lt;dropdawn ... readonly={true} /&gt;
+    	</code>
+	</div>
+
+
+  </div>
+</div>
+
+
+
+</main>
+
+
+
+
+
+
+
+
+<!--<script type="text/javascript" src="https://unpkg.com/material-components-web@latest/dist/material-components-web.js"></script>-->
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/react/15.6.1/react.min.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/react/15.6.1/react-dom.min.js"></script>
+<script type="text/javascript" src="dist/dropdawn-1.0.0.js"></script>
+<script type="text/javascript">
+
+var opts = [{
+  value: 0,
+  // Used on screen
+  displayName:  'Lars-Erik Bruce',
+  // Used in list
+  content: 'Lars-Erik Bruce'
+},{
+  value: 1,
+  displayName:  'Inge Syvertsen',
+  content: 'Inge Syvertsen'
+},{
+  value: 2,
+  displayName:  'Harry Nystad',
+  content: 'Harry Nystad'
+},{
+  value: 3,
+  displayName:  'En ansatt med et veldig langt navn, han kommer kanskje fra et eksotisk land',
+  content: 'En ansatt med et veldig langt navn, han kommer kanskje fra et eksotisk land'
+},{
+  value: 4,
+  displayName:  'Jens Jensen',
+  content: 'Jens Jensen'
+},{
+  value: 5,
+  displayName: 'Hans Hansen',
+  content: 'Hans Hansen',
+},{
+  value: 6,
+  displayName:  'Ole Olesen',
+  content: 'Ole Olesen'
+},{
+  value: 7,
+  displayName:  'Lars Larsen',
+  content: 'Lars Larsen'
+},{
+  value: 8,
+  displayName:  'Ida Olasdottir',
+  content: 'Ida Olasdottir'
+},{
+  value: 9,
+  displayName:  'Some Random Dude',
+  content: 'Some Random Dude'
+}];
+
+function apiCall(value) {
+  if(value.length < 3) return new Promise(function(resolve, reject) {
+    /*setTimeout(function() {
+      resolve([]);
+    });*/
+      
+  });
+  return new Promise(function(resolve, reject) {
+    setTimeout(function() {
+      let a = opts.slice(0, opts.length).reverse();
+      resolve(a);
+    }, 500)
+  });
+}
+
+
+ReactDOM.render(React.createElement(TLXSelect, {
+  label: 'Velg ansatt',
+  options: opts,
+  hideLabelWhenSelected: true,
+  hideSearch: false,
+  removeSelectedText: 'Ingen',
+  name: 'travelreport.employee' }), document.getElementById('dropdawn'));
+
+
+ReactDOM.render(React.createElement(TLXSelect, {
+  apiCall: apiCall,
+  label: 'Velg ansatt',
+  name: 'travelreport.employee',
+  removeSelectedText: 'Fjern valg',
+  className: "random" }), document.getElementById('withApi'));
+
+
+ReactDOM.render(React.createElement(TLXSelect, {
+  options: opts,
+  label: 'Velg ansatt',
+  name: 'travelreport.employee',
+  createNew: function createNew(cb) {
+  	setTimeout(function() {
+  		cb({content: 'Something new', value: parseInt(Math.random() * 1000)})
+  	}, 1000)
+  },
+  removeSelectedText: 'Fjern valg',
+  className: "random" }), document.getElementById('createNew'));
+
+
+ReactDOM.render(React.createElement(TLXSelect, {
+  options: opts,
+  label: 'Velg ansatt',
+  name: 'travelreport.employee',
+  removeSelectedText: 'Fjern valg',
+  viewLink: function(option) { return '/employee/' + option.value},
+  viewLinkText: 'See employee details',
+  className: "random" }), document.getElementById('withLink'));
+
+
+
+ReactDOM.render(React.createElement(TLXSelect, {
+  options: opts,
+  label: 'Velg ansatt',
+  name: 'travelreport.employee',
+  disabled: true,
+  viewLinkText: 'See employee details',
+  className: "random" }), document.getElementById('disabled'));
+
+
+ReactDOM.render(React.createElement(TLXSelect, {
+  options: opts,
+  label: 'Velg ansatt',
+  name: 'travelreport.employee',
+  selected: {
+	  value: 3434,
+	  displayName:  'Jeg finnes ikke blant alternativene engang'
+	},
+  readonly: true,
+  removeSelectedText: 'Fjern valg',
+  className: "random" }), document.getElementById('readonly'));
+
+
+
+</script>
+</body>
+</html>

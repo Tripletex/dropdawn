@@ -1,0 +1,25 @@
+{
+    "parserOptions": {
+        "ecmaVersion": 6,
+        "sourceType": "module",
+        "ecmaFeatures": {
+            "jsx": true
+        }
+    },
+    "env": {
+        "browser": true,
+        "es6": true
+    },
+    "globals": {
+      "React": true,
+      "ReactDOM": true
+    },
+    "extends": "eslint:recommended",
+    "rules": {
+        "no-unused-vars": ["error", { "vars": "all", "varsIgnorePattern": "FAB.*" }],
+        "eqeqeq": ["error", "always"],
+        "semi": ["error", "always"],
+        "no-var": "error",
+        "prefer-const": "error"
+    }
+}

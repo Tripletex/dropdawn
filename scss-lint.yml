@@ -1,0 +1,24 @@
+#doc: https://github.com/sasstools
+
+options:
+  formatter: stylish
+files:
+  include: 'src/*.scss'
+
+rules:
+  class-name-format:
+    - 0
+    -
+      convention: hyphenatedbem
+  property-sort-order: 0
+  no-mergeable-selectors: 0
+  force-element-nesting: 0
+  color-literals: 0
+  leading-zero:
+    - 2
+    -
+      include: true
+  space-after-comma: 0
+  no-color-keywords: 0
+  no-color-literals: 0
+  force-pseudo-nesting: 0
