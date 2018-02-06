@@ -68,10 +68,10 @@ gulp.task('react', function(cb) {
     .pipe(babel())
     .pipe(umd({
       exports: function (file) {
-        return 'dropdawn';
+        return 'Dropdawn';
       },
         namespace: function(file) {
-          return 'dropdawn';
+          return 'Dropdawn';
         }
     }));
 
