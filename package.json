@@ -1,8 +1,8 @@
 {
   "name": "dropdawn",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "A Dropdown menu, with search and API possibilities.",
-  "main": "dist/dropdawn-1.0.0.js",
+  "main": "dist/dropdawn-1.0.1.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
