@@ -165,7 +165,7 @@ class SelectDropdown extends React.Component {
           <ul ref={theList => this.theList = theList} className="dropdown__options" role="listbox">
           {this.props.options.map((option, index) => {
             const classes = ['dropdown__options--list-item', (this.state.highlighted.value === option.value ? ' highlighted' : '')].join(' ');
-            return <li key={option.value} role="option" onClick={e => this.props.selectOption(option)} className={classes}>
+            return <li key={option.value || option.content} role="option" onClick={e => this.props.selectOption(option)} className={classes}>
               {option.content}
             </li>;
           })}
