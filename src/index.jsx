@@ -301,14 +301,17 @@ class Dropdawn extends React.Component {
 
   // Make it controllable which option that are selected
   componentWillReceiveProps(nextProps) {
-    if(this.props.selected && this.props.selected.value === nextProps.selected.value) return
 
-    this.setState({selected: nextProps.selected});
+    if(!(this.props.selected && this.props.selected.value === nextProps.selected.value)) {
+      this.setState({selected: nextProps.selected});
+    }
+
+    this.setState({options: this.getOptions()});
   }
-  
+
   close() {
     if(!this.state.open) return;
-    this.setState({open: false, options: this.getOptions(), query: ''});
+    this.setState({open: false, query: ''});
     this.cleanUp();
     this.root.querySelector('button').focus();
   }
