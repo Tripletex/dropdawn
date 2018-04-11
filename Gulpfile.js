@@ -56,7 +56,7 @@ gulp.task('sass', function(cb) {
 				'last 2 FirefoxAndroid versions']
 		}))
     .pipe(rename(function(path) {
-      path.basename = conf.name + '-' + conf.version
+      path.basename = conf.name
     }))
 		.pipe(sourcemaps.write('./'))
 		.pipe(gulp.dest('dist/'))
@@ -79,7 +79,7 @@ gulp.task('react', function(cb) {
     tmp = tmp.pipe(uglify())
   }
   return tmp.pipe(rename(function(path) {
-      path.basename = conf.name + '-' + conf.version
+      path.basename = conf.name
     }))
     .pipe(sourcemaps.write('./'))
     .pipe(gulp.dest('dist'))
